@@ -45,6 +45,15 @@ module.exports = {
         'no-multiple-empty-lines': ["error", { "max": 2, "maxEOF": 1 }],
         'quotes': ["error", 'single', {allowTemplateLiterals: true}],
         'eol-last': ["error", "always"],
+        'array-bracket-newline': ["error", { "multiline": true, "minItems": 3 }],
+        'max-len': ["error", {
+          "code": 120,
+          "ignoreComments": true,
+          "ignoreUrls": true,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true,
+          "ignoreRegExpLiterals": true
+        }],
         'import/order': [
           'error',
           {

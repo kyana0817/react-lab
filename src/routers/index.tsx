@@ -7,13 +7,15 @@ const { Home } = lazyImport(() => import('@/pages'), 'Home')
 const { State } = lazyImport(() => import('@/pages'), 'State')
 const { Context } = lazyImport(() => import('@/pages'), 'Context')
 const { Redux } = lazyImport(() => import('@/pages'), 'Redux')
+const { Worker } = lazyImport(() => import('@/pages'), 'Worker')
 
 
 const routes: Routes = [
   { title: 'Home', path: '/' },
   { title: 'State', path: '/state' },
   { title: 'Context', path: '/context' },
-  { title: 'Redux', path: '/redux' }
+  { title: 'Redux', path: '/redux' },
+  { title: 'Worker', path: '/worker' }
 ]
 
 
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/redux',
         element: <Redux />
+      },
+      {
+        path: '/worker',
+        element: <Worker/>
       }
     ]
   }
