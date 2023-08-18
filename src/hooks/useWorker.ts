@@ -1,5 +1,4 @@
-// import crypto from 'node:crypto'
-
+import crypto from 'crypto'
 import { useState } from 'react'
 
 type FP<T extends (...args: never[]) => unknown> =  T extends (...args: infer I) => unknown? I: never
@@ -16,17 +15,16 @@ type ClientMessage<
 }
 
 const randomString = (len=16) => {
-  // return crypto.randomBytes(len)
-  //   .toString('hex')
-  return `${len}`
+  return crypto.randomBytes(len)
+    .toString('hex')
 }
 
 export const expose = <
   T extends ActionRecord
 >(actions: T, worker: DedicatedWorkerGlobalScope) => {
-  worker.onmessage = ({ data }: MessageEvent) => {
+  worker.onmessage = async ({ data }: MessageEvent) => {
     const { id, type, args }: ClientMessage<T> = JSON.parse(data)
-    const payload = actions[type](...args)
+    const payload = await actions[type](...args)
     worker.postMessage(JSON.stringify({ id, payload }))
   }
   return actions
@@ -46,7 +44,6 @@ export const useWorker = <T extends ActionRecord = ActionRecord>(filepath: URL) 
           id: string;
           payload: ReturnType<T[K]>
         }
-
         if (id !== reciveId) return
 
         worker.removeEventListener('message', callback)

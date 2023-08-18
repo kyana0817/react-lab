@@ -16,4 +16,8 @@ const fib = (n: number) => {
 
 const fib2 = fib
 
-export default expose({ fib, fib2 }, self)
+const promise = (message: string) => {
+  return Promise.resolve(message)
+}
+
+export default expose({ fib, fib2, promise }, self)

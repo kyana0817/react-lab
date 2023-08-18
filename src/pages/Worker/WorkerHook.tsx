@@ -10,6 +10,8 @@ export const WorkerHook = () => {
 
   const handleClick = async () => {
     const fibo = await postMessage('fib', [n])
+    const test = await postMessage('promise', ['hello'])
+    console.log(test)
     setFibo(fibo)
   }
 
