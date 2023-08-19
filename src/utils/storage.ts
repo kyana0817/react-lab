@@ -6,15 +6,14 @@ type StorageObject = {
 }
 
 type StorageTypeMap = {
-  tabClose1: string;
-  tabClose2: string;
+  tabAllClose: string;
   tabCount: number;
 }
 type StorageItem = keyof StorageTypeMap
 
 
 export const storage: StorageObject = {
-  getItem<T extends StorageItem>(name: T) {
+  getItem(name) {
     const value = localStorage.getItem(STORAGE_PPRFIX + name)
     if (!value) return null
 
