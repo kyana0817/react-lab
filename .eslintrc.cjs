@@ -79,6 +79,7 @@ module.exports = {
           'error',
           { argsIgnorePattern: '^_' },
         ],
+        'react/no-unknown-property': 'off',
         "react/react-in-jsx-scope": "off",
         "react/jsx-newline": [2, { "prevent": true, "allowMultilines": false }],
         "react/jsx-wrap-multilines": ["error", {
