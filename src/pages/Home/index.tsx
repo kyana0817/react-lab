@@ -1,40 +1,10 @@
-// import { Text3D } from '@react-three/drei'
-import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
-import { useRef, useState } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { useRef } from 'react'
 import * as Three from 'three'
-import { TextGeometry } from 'three/addons/geometries/TextGeometry.js'
 import { FontLoader, } from 'three/addons/loaders/FontLoader.js'
 import myFont from '@/fonts/NotoSansJP_Regular.json'
 
 const loader = new FontLoader()
-
-
-function Box(props: ThreeElements['mesh']) {
-  const ref = useRef<Three.Mesh>(null!)
-  const [hovered, hover] = useState(false)
-  const [clicked, click] = useState(false)
-  useFrame((_state, delta) => (ref.current.rotation.x += delta * 5))
-  return (
-    <mesh
-      {...props}
-      ref={ref}
-      scale={clicked ? 1.5 : 1}
-      onClick={() => click(!clicked)}
-      onPointerOver={() => hover(true)}
-      onPointerOut={() => hover(false)}
-    >
-      <meshBasicMaterial
-        color={'0x00ffaa'}
-      />
-      <boxGeometry
-        args={[
-          1, 1, 1
-        ]}
-      />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-    </mesh>
-  )
-}
 
 const HelloWorld = () => {
   const ref = useRef<Three.Mesh>(null!)
