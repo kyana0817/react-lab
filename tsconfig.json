@@ -30,6 +30,7 @@
     "removeComments": true,
     "noEmitOnError": true,
     "outDir": "lib",
+    "preserveSymlinks": true,
     "importHelpers": false,
     // "preserveSymlinks": true,
     "baseUrl": ".",

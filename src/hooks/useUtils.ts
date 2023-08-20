@@ -13,5 +13,7 @@ export const useBool: UseBoolFn = (initialState = false) => {
   const handleFalse = useCallback(() => setState(false), [])
   const handleToggle = useCallback(() => setState(prev => !prev), [])
 
-  return [state, handleTrue, handleFalse, handleToggle]
+  return [
+    state, handleTrue, handleFalse, handleToggle
+  ]
 }
