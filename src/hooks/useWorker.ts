@@ -1,5 +1,4 @@
 import crypto from 'crypto'
-import { useState } from 'react'
 
 type FP<T extends (...args: never[]) => unknown> =  T extends (...args: infer I) => unknown? I: never
 type ActionRecord = Record<string, (...args: never[])=>unknown>
@@ -30,8 +29,7 @@ export const expose = <
   return actions
 }
 
-export const useWorker = <T extends ActionRecord = ActionRecord>(filepath: URL) => {
-  const [worker] = useState<Worker>(() => new Worker(filepath, { type: 'module' }))
+export const useWorker = <T extends ActionRecord = ActionRecord>(worker: Worker) => {
   const postMessage = <K extends keyof T, S extends FP<T[K]>>(type: K, args: S) => {
     const id = randomString()
     worker.postMessage(JSON.stringify({

@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { useWorker } from '@/hooks/useWorker'
-const url = new URL('@/workers/heavyProcess', import.meta.url)
 type WorkerAction = typeof import('@/workers/heavyProcess').default
 
 export const WorkerHook = () => {
-  const { postMessage } = useWorker<WorkerAction>(url)
+  const { postMessage } = useWorker<WorkerAction>(new Worker(new URL('@/workers/heavyProcess', import.meta.url), { type: 'module' }))
   const [fibo, setFibo] = useState(0)
   const [n, setN] = useState(0)
 
