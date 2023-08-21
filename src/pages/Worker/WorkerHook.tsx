@@ -23,6 +23,7 @@ export const WorkerHook = () => {
       <h2>Worker Hook</h2>
       <p>{`Fibonacci: ${fibo}`}</p>
       <input
+        className="mr-1"
         type="number"
         onChange={handleChange}
         value={n}

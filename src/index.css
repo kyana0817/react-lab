@@ -28,9 +28,6 @@
   h4, h5, h6 {
     @apply leading-normal font-bold text-pink-600;
   }
-  button {
-    @apply px-2 py-1 bg-secondary;
-  }
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -43,6 +40,9 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
+  button,input,optgroup,select,textarea {
+    @apply bg-secondary px-2 py-1;
   }
 }
 
