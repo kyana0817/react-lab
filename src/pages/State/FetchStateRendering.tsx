@@ -71,7 +71,9 @@ const PostList = ({ posts }: PostListProps) => {
 
 export const FetchStateRendering = () => {
   const [posts, setPosts] = useState<Posts | undefined>(undefined)
-  const [open, handleOpen, handleClose] = useBool()
+  const [
+    open, handleOpen, handleClose
+  ] = useBool()
 
   useEffect(() => {
     (async () => {

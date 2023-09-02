@@ -9,6 +9,7 @@ const { Context } = lazyImport(() => import('@/pages'), 'Context')
 const { Redux } = lazyImport(() => import('@/pages'), 'Redux')
 const { Worker } = lazyImport(() => import('@/pages'), 'Worker')
 const { BrowserAction } = lazyImport(() => import('@/pages'), 'BrowserAction')
+const { MyLib } = lazyImport(() => import('@/pages'), 'MyLib')
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { title: 'Context', path: '/context' },
   { title: 'Redux', path: '/redux' },
   { title: 'Worker', path: '/worker' },
-  { title: 'BrowserAction', path: '/browser-action' }
+  { title: 'BrowserAction', path: '/browser-action' },
+  { title: 'MyLib', path: '/mylib' }
 ]
 
 
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: '/browser-action',
         element: <BrowserAction/>
+      },
+      {
+        path: '/mylib',
+        element: <MyLib/>
       }
     ]
   }

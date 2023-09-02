@@ -35,6 +35,11 @@ dependencies:
     specifier: ^0.155.0
     version: 0.155.0
 
+optionalDependencies:
+  fetch-family:
+    specifier: link:../fetch-family
+    version: link:../fetch-family
+
 devDependencies:
   '@types/node':
     specifier: ^20.4.10

@@ -21,7 +21,11 @@
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.15.0",
     "redux": "^4.2.1",
-    "three": "^0.155.0"
+    "three": "^0.155.0",
+    "fetch-family": "kyana0818/fetch-family"
+  },
+  "optionalDependencies": {
+    "fetch-family": "link:../fetch-family"
   },
   "devDependencies": {
     "@types/node": "^20.4.10",
