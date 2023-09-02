@@ -22,9 +22,7 @@ interface CustomEventTarget<T extends BaseEventMap> extends EventTarget {
   ): void;
 }
 
-type FactoryEventFn = <T extends BaseEventMap>() => CustomEventTarget<T>
-
-const factoryEvent = <T extends BaseEventMap>() => {
-  const event = EventTarget as {new(): CustomEventTarget<T>; prototype: CustomEventTarget<T>}
-  return event
+export const factoryEvent = <T extends BaseEventMap>() => {
+  const event = new EventTarget
+  return event as CustomEventTarget<T>
 }
