@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Spinner } from '@/components/Spinner'
 import { useBool } from '@/hooks/useUtils'
 
+const IMAGE_NUM = 40
 const IMAGE_URL = new URL('@/assets/img/sample.jpg', import.meta.url)
 
 const useImage = (url: string | URL) => {
@@ -32,7 +33,7 @@ const useImage = (url: string | URL) => {
 const Image = () => {
   const { blobURL, isSuccess } = useImage(IMAGE_URL)
   return (
-    <div className='w-32'>
+    <div className='w-32 h-48'>
       {isSuccess? (
         <img
           className='w-full'
@@ -62,21 +63,12 @@ export const NoFetchQueue = () => {
         {isExecute? 'clear': 'start'}
       </button>
       {isExecute && (
-        <div>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
-          <Image/>
+        <div className='grid justify-items-center items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-4'>
+          {[...Array(IMAGE_NUM)].map((_, idx) => (
+            <>
+              <Image key={idx}/>
+            </>
+          ))}
         </div>
       )}
     </>
