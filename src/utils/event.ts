@@ -20,6 +20,7 @@ interface CustomEventTarget<T extends BaseEventMap> extends EventTarget {
     listener: EventListenerOrEventListenerObject,
     options?: boolean | EventListenerOptions
   ): void;
+  dispatchEvent<K extends keyof T>(event: T[K]): boolean;
 }
 
 export const factoryEvent = <T extends BaseEventMap>() => {
