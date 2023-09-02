@@ -37,8 +37,8 @@ dependencies:
 
 optionalDependencies:
   fetch-family:
-    specifier: link:../fetch-family
-    version: link:../fetch-family
+    specifier: github:kyana0818/fetch-family
+    version: github.com/kyana0818/fetch-family/f49f113f202398b7b805357ed260ac0f951f4a70
 
 devDependencies:
   '@types/node':
@@ -1515,7 +1515,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /cipher-base@1.0.4:
@@ -2266,8 +2266,8 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
 
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+  /fsevents@2.3.3:
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -3696,7 +3696,7 @@ packages:
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /run-applescript@5.0.0:
@@ -4300,7 +4300,7 @@ packages:
       postcss: 8.4.27
       rollup: 3.28.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /vm-browserify@1.1.2:
@@ -4386,3 +4386,10 @@ packages:
     dependencies:
       react: 18.2.0
     dev: false
+
+  github.com/kyana0818/fetch-family/f49f113f202398b7b805357ed260ac0f951f4a70:
+    resolution: {tarball: https://codeload.github.com/kyana0818/fetch-family/tar.gz/f49f113f202398b7b805357ed260ac0f951f4a70}
+    name: fetch-family
+    version: 0.1.0
+    dev: false
+    optional: true
