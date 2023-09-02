@@ -22,7 +22,7 @@
     "react-router-dom": "^6.15.0",
     "redux": "^4.2.1",
     "three": "^0.155.0",
-    "fetch-family": "kyana0818/fetch-family"
+    "fetch-family": "github:kyana0818/fetch-family"
   },
   "optionalDependencies": {
     "fetch-family": "link:../fetch-family"
