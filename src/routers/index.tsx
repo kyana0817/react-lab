@@ -9,6 +9,7 @@ const { Context } = lazyImport(() => import('@/pages'), 'Context')
 const { Redux } = lazyImport(() => import('@/pages'), 'Redux')
 const { Worker } = lazyImport(() => import('@/pages'), 'Worker')
 const { BrowserAction } = lazyImport(() => import('@/pages'), 'BrowserAction')
+const { IntersectionObserver } = lazyImport(() => import('@/pages'), 'IntersectionObserver')
 const { MyLib } = lazyImport(() => import('@/pages'), 'MyLib')
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { title: 'Redux', path: '/redux' },
   { title: 'Worker', path: '/worker' },
   { title: 'BrowserAction', path: '/browser-action' },
+  { title: 'IntersectionObserver', path: '/intersection-observer' },
   { title: 'MyLib', path: '/mylib' }
 ]
 
@@ -51,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: '/browser-action',
         element: <BrowserAction/>
+      },
+      {
+        path: '/intersection-observer',
+        element: <IntersectionObserver/>
       },
       {
         path: '/mylib',
