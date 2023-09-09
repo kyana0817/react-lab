@@ -1,25 +1,36 @@
 import { factoryEvent } from '@/utils/event'
 
+type NotifyDetail = {
+  eventIds: string[];
+  leaveIds: string[];
+}
+
 type ObserverEventMap = {
-  notify: CustomEvent<{ids: string[]}>
+  notify: CustomEvent<NotifyDetail>
 }
 
 export const createObserver = (options?: IntersectionObserverInit) => {
   const event = factoryEvent<ObserverEventMap>()
 
-  const notify = (ids: string[]) => {
-    event.dispatchEvent(new CustomEvent<{ ids: string[]; }>('notify', { detail: { ids } }))
+  const notify = (detail: NotifyDetail) => {
+    event.dispatchEvent(new CustomEvent('notify', { detail }) )
   }
 
   const observer = new IntersectionObserver((entries) => {
-    const ids: string[] = []
-    console.log(entries)
+    const notifyDetail: NotifyDetail = {
+      eventIds: [],
+      leaveIds: [],
+    }
+    
     entries.forEach((entry) => {
-      ids.push(entry.target.id)
+      if (entry.isIntersecting) {
+        notifyDetail.eventIds.push(entry.target.id)
+      } else {
+        notifyDetail.leaveIds.push(entry.target.id)
+      }
     })
-    notify(ids)
+    notify(notifyDetail)
   }, options)
   
-  console.log('')
   return { observer, event }
 }

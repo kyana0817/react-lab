@@ -50,5 +50,5 @@ export const useRegister = () => {
     
     return unregister
   
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 }

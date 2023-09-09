@@ -19,6 +19,13 @@ type ProviderProps = PropsWithChildren<{
   options?: IntersectionObserverInit
 }>
 
+type Observer = ReturnType<typeof createObserver>
+type RefObserver = {
+  observer?: Observer['observer'];
+} & {
+  [K in Exclude<keyof Observer, 'observer'>]: Observer[K];
+}
+
 
 const stateContext = createContext<State | undefined>(undefined)
 const actionContext = createContext<Action | undefined>(undefined)
@@ -37,13 +44,6 @@ export const useActionContext = () => { // eslint-disable-line react-refresh/onl
   return context
 }
 
-type Observer = ReturnType<typeof createObserver>
-type RefObserver = {
-  observer?: Observer['observer'];
-} & {
-  [K in Exclude<keyof Observer, 'observer'>]: Observer[K];
-}
-
 export default function Provider(props: ProviderProps) {
   const { children, options } = props
   const observerRef = useRef<RefObserver>(createObserver(options))
@@ -60,7 +60,7 @@ export default function Provider(props: ProviderProps) {
   
     observer.observe(target)
     return () => observer.unobserve(target)
-  }, [])
+  }, [options]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleEnterRegister = useCallback((id: string, callback: Callback) => {
     callbacks.current.enter.set(id, callback)
