@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { BaseLayout } from '@/layouts'
-import type { Routes } from '@/types'
+import type { Groups } from '@/types'
 import { lazyImport } from '@/utils/lazyImport'
 
 const { Home } = lazyImport(() => import('@/pages'), 'Home')
@@ -14,23 +14,36 @@ const { MyLib } = lazyImport(() => import('@/pages'), 'MyLib')
 const { Tanstack } = lazyImport(() => import('@/pages'), 'Tanstack')
 
 
-const routes: Routes = [
-  { title: 'Home', path: '/' },
-  { title: 'State', path: '/state' },
-  { title: 'Context', path: '/context' },
-  { title: 'Redux', path: '/redux' },
-  { title: 'Worker', path: '/worker' },
-  { title: 'BrowserAction', path: '/browser-action' },
-  { title: 'IntersectionObserver', path: '/intersection-observer' },
-  { title: 'MyLib', path: '/mylib' },
-  { title: 'Tanstack', path: '/tanstack' }
+const groups: Groups = [
+  { title: 'Basic', routes: [
+    { title: 'Home', path: '/' },
+    { title: 'State', path: '/state' },
+    { title: 'Context', path: '/context' },
+    { title: 'Redux', path: '/redux' },
+    { title: 'Worker', path: '/worker' },
+    { title: 'BrowserAction', path: '/browser-action' },
+    { title: 'IntersectionObserver', path: '/intersection-observer' },
+    { title: 'MyLib', path: '/mylib' },
+    { title: 'Tanstack', path: '/tanstack' }
+  ] },
+  { title: 'Experimental', routes: [
+    { title: 'Home', path: '/' },
+    { title: 'State', path: '/state' },
+    { title: 'Context', path: '/context' },
+    { title: 'Redux', path: '/redux' },
+    { title: 'Worker', path: '/worker' },
+    { title: 'BrowserAction', path: '/browser-action' },
+    { title: 'IntersectionObserver', path: '/intersection-observer' },
+    { title: 'MyLib', path: '/mylib' },
+    { title: 'Tanstack', path: '/tanstack' }
+  ] }
 ]
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <BaseLayout routes={routes}/>,
+    element: <BaseLayout groups={groups}/>,
     children: [
       {
         index: true,

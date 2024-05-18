@@ -2,11 +2,11 @@ import React, { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Spinner } from '@/components/Spinner'
-import type { Routes } from '@/types'
+import type { Groups } from '@/types'
 import { SideBar } from './SideBar'
 
 type BaseLayoutProps = {
-  routes: Routes
+  groups: Groups
 }
 
 const Fallback = () => (
@@ -15,12 +15,13 @@ const Fallback = () => (
   </div>
 )
 
-export const BaseLayout = ({ routes }: BaseLayoutProps) => {
+export const BaseLayout = ({ groups }: BaseLayoutProps) => {
   const { pathname } = useLocation()
   const pageTitle = useMemo(() => {
+    const routes = groups.flatMap(group => group.routes)
     const route = routes.find(item => item.path === pathname)
     return route? route.title: 'Error!'
-  }, [routes, pathname])
+  }, [pathname])
 
   return (
     <>
@@ -34,7 +35,7 @@ export const BaseLayout = ({ routes }: BaseLayoutProps) => {
         )}
       </Helmet>
       <div className="bg-primary min-h-[100vh] flex">
-        <SideBar routes={routes}/>
+        <SideBar groups={groups}/>
         <main className="flex-1 px-4 md:px-14 lg:px-32 pt-8 flex flex-col">
           <header className='border-b-2'>
             <h1>

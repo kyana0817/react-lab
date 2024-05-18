@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import type { Route, Routes } from '@/types'
+import type { Route, Routes, Group, Groups } from '@/types'
 import { cls } from '@/utils/cls'
 
 type SideBarListItemProps = {
@@ -8,11 +8,12 @@ type SideBarListItemProps = {
 }
 
 type SideBarListProps = {
+  title: Group['title']
   routes: Routes
 }
 
 type SideBarProps = {
-  routes: Routes
+  groups: Groups
 }
 
 
@@ -26,7 +27,9 @@ const SideBarListItem = ({ route }: SideBarListItemProps) => {
     <li>
       <Link 
         className={cls(
-          ['block', 'px-2', 'py-1'],
+          [
+            'block', 'px-2', 'py-1'
+          ],
           isSelect
             ?['text-pink-600', 'font-bold']
             :['hover:text-pink-200', 'focus:text-pink-200']
@@ -39,8 +42,11 @@ const SideBarListItem = ({ route }: SideBarListItemProps) => {
   )
 }
 
-const SideBarList = ({ routes }: SideBarListProps) => (
+const SideBarList = ({ title, routes }: SideBarListProps) => (
   <div>
+    <p className='px-2 pt-2 pb-1 text-sm text-gray-400'>
+      {title}
+    </p>
     <ul>
       {routes.map(route => (
         <SideBarListItem
@@ -53,7 +59,7 @@ const SideBarList = ({ routes }: SideBarListProps) => (
 )
 
 
-export const SideBar = ({ routes }: SideBarProps) => {
+export const SideBar = ({ groups }: SideBarProps) => {
   return (
     <>
       <aside className="border-r-2 bg-secondary">
@@ -63,7 +69,13 @@ export const SideBar = ({ routes }: SideBarProps) => {
               React Re-Rendering
             </p>
           </div>
-          <SideBarList routes={routes}/>
+          {groups.map(({ title, routes }) => (
+            <SideBarList
+              key={title}
+              title={title}
+              routes={routes}
+            />
+          ))}
         </div>
       </aside>
     </>
