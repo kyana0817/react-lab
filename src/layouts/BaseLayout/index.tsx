@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Spinner } from '@/components/Spinner'
 import type { Groups } from '@/types'
@@ -25,15 +24,9 @@ export const BaseLayout = ({ groups }: BaseLayoutProps) => {
 
   return (
     <>
-      <Helmet>
-        {pageTitle && (
-          <title>
-            React Re-Render |
-            {' '}
-            {pageTitle}
-          </title>
-        )}
-      </Helmet>
+      <title>
+        {`${pageTitle} | React Re-Render`}
+      </title>
       <div className="bg-primary min-h-[100vh] flex">
         <SideBar groups={groups}/>
         <main className="flex-1 px-4 md:px-14 lg:px-32 pt-8 flex flex-col">

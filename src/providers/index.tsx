@@ -3,7 +3,6 @@ import {
   QueryClientProvider
 } from '@tanstack/react-query'
 import React from 'react'
-import { HelmetProvider } from 'react-helmet-async'
 import { Provider as ReduxProvider } from 'react-redux'
 import store from '@/stores'
 
@@ -16,9 +15,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     <>
       <ReduxProvider store={store}>
         <QueryClientProvider client={queryClinet}>
-          <HelmetProvider>
-            {children}
-          </HelmetProvider>
+          {children}
         </QueryClientProvider>
       </ReduxProvider>
     </>
