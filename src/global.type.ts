@@ -1,4 +1,3 @@
-
 import { extend, ThreeElement  } from '@react-three/fiber'
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js'
 
