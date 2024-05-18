@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counter from '@/stores/counter'
+import datalist from '@/stores/datalist'
 
 
 const store = configureStore({
   reducer: {
-    counter
+    counter,
+    datalist
   }
 })
 

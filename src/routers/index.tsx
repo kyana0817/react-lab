@@ -11,6 +11,7 @@ const { Worker } = lazyImport(() => import('@/pages'), 'Worker')
 const { BrowserAction } = lazyImport(() => import('@/pages'), 'BrowserAction')
 const { IntersectionObserver } = lazyImport(() => import('@/pages'), 'IntersectionObserver')
 const { MyLib } = lazyImport(() => import('@/pages'), 'MyLib')
+const { Tanstack } = lazyImport(() => import('@/pages'), 'Tanstack')
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { title: 'Worker', path: '/worker' },
   { title: 'BrowserAction', path: '/browser-action' },
   { title: 'IntersectionObserver', path: '/intersection-observer' },
-  { title: 'MyLib', path: '/mylib' }
+  { title: 'MyLib', path: '/mylib' },
+  { title: 'Tanstack', path: '/tanstack' }
 ]
 
 
@@ -61,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: '/mylib',
         element: <MyLib/>
+      },
+      {
+        path: '/tanstack',
+        element: <Tanstack/>
       }
     ]
   }
