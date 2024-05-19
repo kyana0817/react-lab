@@ -13,12 +13,10 @@ const useImage = (url: string | URL) => {
     isSuccess, handleSuccessed, handleUnsuccess
   ] = useBool()
   useEffect(() => {
-    (async () => {
-      handleUnsuccess()
-      await fetchQueue(url, { convertType: 'blob' })
-        .then((data) => setBlobURL(URL.createObjectURL(data)))
-      handleSuccessed()
-    })()
+    handleUnsuccess()
+    fetchQueue(url, { convertType: 'blob' })
+      .then((data) => setBlobURL(URL.createObjectURL(data)))
+      .then(() => handleSuccessed())
     return () => {
       setBlobURL((prev) => {
         if (!prev) return prev
@@ -37,6 +35,7 @@ const Image = () => {
     <div className='w-32 h-48'>
       {isSuccess? (
         <img
+          decoding='async'
           className='w-full'
           src={blobURL}
           alt="aaa"

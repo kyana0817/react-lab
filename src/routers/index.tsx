@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { BaseLayout } from '@/layouts'
+import { ServerAction } from '@/pages'
 import type { Groups } from '@/types'
 import { lazyImport } from '@/utils/lazyImport'
 
@@ -26,17 +27,7 @@ const groups: Groups = [
     { title: 'MyLib', path: '/mylib' },
     { title: 'Tanstack', path: '/tanstack' }
   ] },
-  { title: 'Experimental', routes: [
-    { title: 'Home', path: '/' },
-    { title: 'State', path: '/state' },
-    { title: 'Context', path: '/context' },
-    { title: 'Redux', path: '/redux' },
-    { title: 'Worker', path: '/worker' },
-    { title: 'BrowserAction', path: '/browser-action' },
-    { title: 'IntersectionObserver', path: '/intersection-observer' },
-    { title: 'MyLib', path: '/mylib' },
-    { title: 'Tanstack', path: '/tanstack' }
-  ] }
+  { title: 'Experimental', routes: [{ title: 'ServerAction', path: '/server-action' }] }
 ]
 
 
@@ -80,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: '/tanstack',
         element: <Tanstack/>
+      },
+      {
+        path: '/server-action',
+        element: <ServerAction/>
       }
     ]
   }
