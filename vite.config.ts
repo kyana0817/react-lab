@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
+const ReactComilerConfig = {}
 
 export default defineConfig({
   resolve: {
@@ -11,7 +12,11 @@ export default defineConfig({
     }
   },
   plugins: [
-    react(), nodePolyfills({
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler', ReactComilerConfig]
+      }
+    }), nodePolyfills({
       globals: {
         Buffer: true,
         global: true,
