@@ -16,7 +16,7 @@ const Item = () => {
       }
     }
     return () => {}
-  }, [])
+  }, [register])
   return (
     <div
       ref={ref}

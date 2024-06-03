@@ -20,7 +20,7 @@ export const BaseLayout = ({ groups }: BaseLayoutProps) => {
     const routes = groups.flatMap(group => group.routes)
     const route = routes.find(item => item.path === pathname)
     return route? route.title: 'Error!'
-  }, [pathname])
+  }, [pathname, groups])
 
   return (
     <>

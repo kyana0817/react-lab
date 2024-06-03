@@ -24,7 +24,9 @@ const useImage = (url: string | URL) => {
         return ''
       }) 
     }
-  }, [])
+  }, [
+    handleSuccessed, handleUnsuccess, url
+  ])
 
   return { blobURL, isSuccess }
 }

@@ -35,8 +35,11 @@ module.exports = {
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
       ],
-      plugins: [],
+      plugins: [
+        'eslint-plugin-react-compiler'
+      ],
       rules: {
+        'react-compiler/react-compiler': "error",
         'newline-per-chained-call': ['error', { ignoreChainWithDepth: 1 }],
         indent: ['error', 2, {SwitchCase: 1}],
         semi: ['error', 'never', { beforeStatementContinuationChars: 'never' }],
