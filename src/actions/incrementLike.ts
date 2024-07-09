@@ -1,7 +1,13 @@
 'use server'
 
-let likeCount = 0
+
+const { increment } = (() => {
+  let count = 0
+  return {
+    increment: () => ++count
+  }
+})()
 
 export default async function incrementLike() {
-  return ++likeCount
+  return increment()
 }
