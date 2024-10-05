@@ -11,7 +11,14 @@ export type DatalistState = Dataitem[]
 const initialState: DatalistState = [
   { id: 0, text: 'tanaka' },
   { id: 1, text: 'suzuki' },
-  { id: 2, text: 'satou' }
+  { id: 2, text: 'satou' },
+  { id: 3, text: 'sato' },
+  { id: 4, text: 'saito' },
+  { id: 5, text: 'sakai' },
+  { id: 6, text: 'sasaki' },
+  { id: 7, text: 'sakamoto' },
+  { id: 8, text: 'sakaguchi' },
+  { id: 9, text: 'sakurai' }
 ]
 
 const datalistSlice = createSlice({
@@ -29,10 +36,13 @@ const datalistSlice = createSlice({
       if (!s || !t) return
       state[source] = t
       state[target] = s
+    },
+    deleteItem: (state: DatalistState, action: PayloadAction<number>) => {
+      state.splice(action.payload, 1)
     }
   }
 })
 
-export const { modifyText, modifyOrder } = datalistSlice.actions
+export const { modifyText, modifyOrder, deleteItem } = datalistSlice.actions
 
 export default datalistSlice.reducer

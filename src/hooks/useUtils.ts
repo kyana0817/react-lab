@@ -1,10 +1,11 @@
 import { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import type { UseAppSelectorFn, UseAppDispatchFn, UseBoolFn  } from './useUtils.type'
+import { AppDispatch, RootState } from '@/stores'
+import type { UseBoolFn  } from './useUtils.type'
 
 // use redux hook
-export const useAppDispatch: UseAppDispatchFn = useDispatch
-export const useAppSelector: UseAppSelectorFn = useSelector
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppSelector = useSelector.withTypes<RootState>()
 
 // common hook
 export const useBool: UseBoolFn = (initialState = false) => {
