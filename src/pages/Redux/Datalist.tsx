@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { shallowEqual } from 'react-redux'
 import { useAppDispatch, useAppSelector } from '@/hooks/useUtils'
-import { modifyOrder, modifyText } from '@/stores/datalist'
+import { deleteItem, modifyOrder, modifyText } from '@/stores/datalist'
 
 const Item = React.memo((props: {idx: number}) => {
   const { idx } = props
+  const dispatch = useAppDispatch()
   const text = useAppSelector(state => state.datalist[idx].text)
+  const handleDelete = () => dispatch(deleteItem(idx))
   useEffect(() => {
     console.log(idx, text)
   })
 
-  return <p>{text}</p>
+  return (
+    <div className='flex gap-1'>
+      <button onClick={handleDelete}>d</button>
+      <p>{text}</p>
+    </div>
+  )
 })
 
 Item.displayName = 'Item'
 
-const List = (props: {ids: number[]}) => {
-  const { ids } = props
+const List = () => {
+  const ids = useAppSelector(state => state.datalist.map(item => item.id), shallowEqual)
 
   return (
     <>
@@ -30,11 +37,8 @@ const List = (props: {ids: number[]}) => {
   )
 }
 
-List.displayName = 'List'
-
 const Test = () => {
-  const ids = useAppSelector(state => state.datalist.map(item => item.id), shallowEqual)
-  return <List ids={ids}/>
+  return <List/>
 }
 
 const ModifyText = () => {
