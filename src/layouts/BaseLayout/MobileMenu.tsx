@@ -1,7 +1,9 @@
-import { useMemo } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import type { Route, Routes, Group, Groups } from '@/types'
-import { cls } from '@/utils/cls'
+import { useBool } from "@/hooks/useUtils"
+import { Groups, Group, Routes, Route } from "@/types"
+import { cls } from "@/utils/cls"
+import { useMemo } from "react"
+import { Link, useLocation } from "react-router-dom"
+
 
 type SideBarListItemProps = {
   route: Route
@@ -12,11 +14,10 @@ type SideBarListProps = {
   routes: Routes
 }
 
-type SideBarProps = {
+
+type MobileMenuProps = {
   groups: Groups
 }
-
-
 const SideBarListItem = ({ route }: SideBarListItemProps) => {
   const { pathname } = useLocation()
   const isSelect = useMemo(() => {
@@ -58,24 +59,27 @@ const SideBarList = ({ title, routes }: SideBarListProps) => (
   </div>
 )
 
+export const MobileMenu = ({groups}: MobileMenuProps) => {
+  const [ isOpen, handleOpen, handleClose, handleToggle] = useBool()
 
-export const SideBar = ({ groups }: SideBarProps) => {
   return (
-      <aside className="hidden md:block border-r-2 bg-secondary">
-        <div className="my-2">
-          <div className="border-b-2 pb-2 px-2">
-            <p className="text-xl">
-              React Re-Rendering
-            </p>
+    <div className="block md:hidden fixed top-8 right-4 z-10">
+      <div>
+        <button className="ml-auto block" onClick={handleToggle}>
+          M
+        </button>
+      </div>
+        {isOpen && (
+          <div className="bg-secondary border-2 max-h-[60dvh] overflow-y-auto mt-4">
+            {groups.map(({ title, routes }) => (
+              <SideBarList
+                key={title}
+                title={title}
+                routes={routes}
+              />
+            ))}
           </div>
-          {groups.map(({ title, routes }) => (
-            <SideBarList
-              key={title}
-              title={title}
-              routes={routes}
-            />
-          ))}
-        </div>
-      </aside>
+        )}
+    </div>
   )
 }

@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { Spinner } from '@/components/Spinner'
 import type { Groups } from '@/types'
 import { SideBar } from './SideBar'
+import { MobileMenu } from '@/layouts/BaseLayout/MobileMenu'
 
 type BaseLayoutProps = {
   groups: Groups
@@ -29,6 +30,7 @@ export const BaseLayout = ({ groups }: BaseLayoutProps) => {
       </title>
       <div className="bg-primary min-h-[100vh] flex">
         <SideBar groups={groups}/>
+        <MobileMenu groups={groups}/>
         <main className="flex-1 px-4 md:px-14 lg:px-32 pt-8 flex flex-col">
           <header className='border-b-2'>
             <h1>

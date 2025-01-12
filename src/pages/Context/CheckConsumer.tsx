@@ -90,7 +90,7 @@ const HOCProvider = (Component: ComponentType) => {
     return (
       <context.Provider value={value}>
         <context2.Provider value={value2}>
-        <Component/>
+          <Component/>
         </context2.Provider>
       </context.Provider>
     )
