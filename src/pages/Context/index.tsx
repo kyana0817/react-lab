@@ -1,3 +1,4 @@
+import { CheckConsumer } from '@/pages/Context/CheckConsumer'
 import { NotOptimizeContextRender } from './NotOptimizeContextRender'
 import { OptimizeContextRender } from './OptimizeContextRender'
 
@@ -6,6 +7,7 @@ export const Context = () => {
     <>
       <NotOptimizeContextRender/>
       <OptimizeContextRender/>
+      <CheckConsumer/>
     </>
   )
 }
