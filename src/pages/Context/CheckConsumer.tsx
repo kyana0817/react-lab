@@ -147,7 +147,6 @@ const Children = () => {
       <ConsumerChild />
       <ConsumerChild2 />
       <NotConsumerChild />
-      <ReanderingEffect />
     </div>
   )
 }

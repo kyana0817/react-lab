@@ -45,7 +45,7 @@ export const BaseLayout = ({ groups }: BaseLayoutProps) => {
           <footer className='border-t-2'>
             <div className='pt-2 pb-4'>
               <p className="text-center">
-                Copyright 2023 by kyana0817
+                Copyright 2023- by kyana0817
               </p>
             </div>
           </footer>
