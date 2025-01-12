@@ -60,7 +60,7 @@ const SideBarList = ({ title, routes }: SideBarListProps) => (
 )
 
 export const MobileMenu = ({groups}: MobileMenuProps) => {
-  const [ isOpen, handleOpen, handleClose, handleToggle] = useBool()
+  const [ isOpen, _handleOpen, _handleClose, handleToggle] = useBool()
 
   return (
     <div className="block md:hidden fixed top-8 right-4 z-10">
