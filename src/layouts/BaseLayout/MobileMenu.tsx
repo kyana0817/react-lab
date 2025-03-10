@@ -7,18 +7,20 @@ import { cls } from '@/utils/cls'
 
 type SideBarListItemProps = {
   route: Route
+  handleClose: VoidFunction
 }
 
 type SideBarListProps = {
   title: Group['title']
   routes: Routes
+  handleClose: VoidFunction
 }
 
 
 type MobileMenuProps = {
   groups: Groups
 }
-const SideBarListItem = ({ route }: SideBarListItemProps) => {
+const SideBarListItem = ({ route, handleClose }: SideBarListItemProps) => {
   const { pathname } = useLocation()
   const isSelect = useMemo(() => {
     return route.path === pathname
@@ -36,6 +38,7 @@ const SideBarListItem = ({ route }: SideBarListItemProps) => {
             :['hover:text-pink-200', 'focus:text-pink-200']
         )}
         to={route.path}
+        onClick={handleClose}
       >
         {route.title}
       </Link>
@@ -43,7 +46,7 @@ const SideBarListItem = ({ route }: SideBarListItemProps) => {
   )
 }
 
-const SideBarList = ({ title, routes }: SideBarListProps) => (
+const SideBarList = ({ title, routes, handleClose }: SideBarListProps) => (
   <div>
     <p className='px-2 pt-2 pb-1 text-sm text-gray-400'>
       {title}
@@ -53,6 +56,7 @@ const SideBarList = ({ title, routes }: SideBarListProps) => (
         <SideBarListItem
           key={route.title}
           route={route}
+          handleClose={handleClose}
         />
       ))}
     </ul>
@@ -61,7 +65,7 @@ const SideBarList = ({ title, routes }: SideBarListProps) => (
 
 export const MobileMenu = ({ groups }: MobileMenuProps) => {
   const [
-    isOpen, _handleOpen, _handleClose, handleToggle
+    isOpen, _handleOpen, handleClose, handleToggle
   ] = useBool()
 
   return (
@@ -81,6 +85,7 @@ export const MobileMenu = ({ groups }: MobileMenuProps) => {
               key={title}
               title={title}
               routes={routes}
+              handleClose={handleClose}
             />
           ))}
         </div>

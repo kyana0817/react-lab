@@ -37,7 +37,7 @@ export const BaseLayout = ({ groups }: BaseLayoutProps) => {
               {pageTitle}
             </h1>
           </header>
-          <div className="flex-grow-[1] flex flex-col">
+          <div className="flex-grow-[1] flex flex-col min-w-full w-0">
             <div className="overflow-y-auto flex-grow-[1] px-2 py-4 min-h-auto h-0">
               <React.Suspense fallback={<Fallback/>}>
                 <Outlet/>
