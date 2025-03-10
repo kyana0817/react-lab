@@ -52,8 +52,10 @@ export const UIThread = () => {
   return (
     <>
       <h2>UI Thread</h2>
-      {isProcessing && <p>Processing...</p>}
-      <p>{`Fibonacci: ${fibo}`}</p>
+      {isProcessing
+        ?<p>Processing...</p>
+        :<p>{`Fibonacci: ${fibo}`}</p>
+      }
       <input
         className="mr-1"
         type="number"
@@ -94,8 +96,10 @@ export const WorkerHook = () => {
   return (
     <>
       <h2>Worker Thread</h2>
-      {isProcessing && <p>Processing...</p>}
-      <p>{`Fibonacci: ${fibo}`}</p>
+      {isProcessing
+        ?<p>Processing...</p>
+        :<p>{`Fibonacci: ${fibo}`}</p>
+      }
       <input
         className="mr-1"
         type="number"
