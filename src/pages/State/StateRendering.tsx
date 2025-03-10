@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { PropsWithChildren, useState } from 'react'
+import { RenderingEffect } from '@/components/RenderingEffect'
 
 type ButtonAreaProps = {
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -39,6 +40,46 @@ export const StateRendering = () => {
         {count}
       </div>
       <ButtonArea handleClick={handleClick}/>
+    </>
+  )
+}
+
+
+const Children = () => {
+  return (
+    <div>      
+      <RenderingEffect/>
+    </div>
+  )
+}
+
+const _WithChildren = ({ children }: PropsWithChildren) => {
+  const [count, setCount] = useState(0)
+  const handleClick = () => setCount(prev => prev + 1)
+
+  return (
+    <>
+      <div>
+        state value:
+        {count}
+      </div>
+      <button onClick={handleClick}>push</button>
+      <div>
+        <Children/>
+        {children}
+      </div>
+    </>
+  )
+}
+
+export const WithChildren = () => {
+
+  return (
+    <>
+      <h2>With children</h2>
+      <_WithChildren>
+        <Children/>
+      </_WithChildren>
     </>
   )
 }

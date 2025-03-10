@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Spinner } from '@/components/Spinner'
+import { MobileMenu } from '@/layouts/BaseLayout/MobileMenu'
 import type { Groups } from '@/types'
 import { SideBar } from './SideBar'
-import { MobileMenu } from '@/layouts/BaseLayout/MobileMenu'
 
 type BaseLayoutProps = {
   groups: Groups

@@ -1,8 +1,8 @@
-import { useBool } from "@/hooks/useUtils"
-import { Groups, Group, Routes, Route } from "@/types"
-import { cls } from "@/utils/cls"
-import { useMemo } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { useMemo } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { useBool } from '@/hooks/useUtils'
+import { Groups, Group, Routes, Route } from '@/types'
+import { cls } from '@/utils/cls'
 
 
 type SideBarListItemProps = {
@@ -59,27 +59,32 @@ const SideBarList = ({ title, routes }: SideBarListProps) => (
   </div>
 )
 
-export const MobileMenu = ({groups}: MobileMenuProps) => {
-  const [ isOpen, _handleOpen, _handleClose, handleToggle] = useBool()
+export const MobileMenu = ({ groups }: MobileMenuProps) => {
+  const [
+    isOpen, _handleOpen, _handleClose, handleToggle
+  ] = useBool()
 
   return (
     <div className="block md:hidden fixed top-8 right-4 z-10">
       <div>
-        <button className="ml-auto block" onClick={handleToggle}>
+        <button
+          className="ml-auto block"
+          onClick={handleToggle}
+        >
           M
         </button>
       </div>
-        {isOpen && (
-          <div className="bg-secondary border-2 max-h-[60dvh] overflow-y-auto mt-4">
-            {groups.map(({ title, routes }) => (
-              <SideBarList
-                key={title}
-                title={title}
-                routes={routes}
-              />
-            ))}
-          </div>
-        )}
+      {isOpen && (
+        <div className="bg-secondary border-2 max-h-[60dvh] overflow-y-auto mt-4">
+          {groups.map(({ title, routes }) => (
+            <SideBarList
+              key={title}
+              title={title}
+              routes={routes}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

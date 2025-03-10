@@ -80,7 +80,7 @@ module.exports = {
         "import/no-duplicates": ["error", {"prefer-inline": false}],
         '@typescript-eslint/no-unused-vars': [
           'error',
-          { argsIgnorePattern: '^_' },
+          { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
         ],
         'react/no-unknown-property': 'off',
         "react/react-in-jsx-scope": "off",

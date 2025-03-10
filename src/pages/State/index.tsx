@@ -1,7 +1,7 @@
 import { FetchStateRendering } from '@/pages/State/FetchStateRendering'
 import { StateMemoRendering } from '@/pages/State/StateMemoRendering'
 import { NoStateRendering } from './NoStateRendering'
-import { StateRendering } from './StateRendering'
+import { StateRendering, WithChildren } from './StateRendering'
 
 
 export const State = () => {
@@ -10,6 +10,7 @@ export const State = () => {
       <NoStateRendering />
       <StateRendering />
       <StateMemoRendering />
+      <WithChildren />
       <FetchStateRendering />
     </>
   )

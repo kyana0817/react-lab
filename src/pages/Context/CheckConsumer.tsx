@@ -1,4 +1,5 @@
-import { ComponentType, createContext, memo, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { ComponentType, createContext, memo, useContext, useEffect, useMemo, useState } from 'react'
+import { RenderingEffect } from '@/components/RenderingEffect'
 
 type Context = {
   count: number;
@@ -9,7 +10,7 @@ const context = createContext<undefined | Context>(undefined)
 
 const useData = () => {
   const data = useContext(context)
-  if (data === undefined) throw new Error('provider outside');
+  if (data === undefined) throw new Error('provider outside')
 
   return data 
 }
@@ -60,7 +61,7 @@ const ContextProvider = ({ children }: React.PropsWithChildren) => {
 }
 
 const HOCProvider = (Component: ComponentType) => {
-  return () => {
+  const Wrapper = () => {
     const [state, setState] = useState(0)
     const [state2, setState2] = useState(0)
   
@@ -95,26 +96,16 @@ const HOCProvider = (Component: ComponentType) => {
       </context.Provider>
     )
   }
+  Wrapper.displayName = Component.displayName
+  return Wrapper
 }
-
-const counter = (() => {
-  let count = 0;
-  return () => count++
-})
-const ReanderingEffect = () => {
-  const ref = useRef<HTMLSpanElement>(null)
-  const count = useCallback(counter(), [])
-  if (ref.current) ref.current.textContent = `${count()}`
-  return <p>re-rendering: <span ref={ref}></span></p>
-}
-
 const ConsumerChild = () => {
   const { count } = useData()
   return (
     <>
       <h4>Consumer</h4>
       <p>{`Count: ${count}`}</p>
-      <ReanderingEffect />
+      <RenderingEffect />
     </>
   )
 }
@@ -125,7 +116,7 @@ const ConsumerChild2 = () => {
     <>
       <h4>Consumer 2</h4>
       <p>{`Count: ${count}`}</p>
-      <ReanderingEffect />
+      <RenderingEffect />
     </>
   )
 }
@@ -135,7 +126,7 @@ const NotConsumerChild = () => {
     <>
       <h4>Not Consumer</h4>
       <p>Count: 0</p>
-      <ReanderingEffect />
+      <RenderingEffect />
     </>
   )
 }

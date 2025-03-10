@@ -61,21 +61,21 @@ const SideBarList = ({ title, routes }: SideBarListProps) => (
 
 export const SideBar = ({ groups }: SideBarProps) => {
   return (
-      <aside className="hidden md:block border-r-2 bg-secondary">
-        <div className="my-2">
-          <div className="border-b-2 pb-2 px-2">
-            <p className="text-xl">
-              React Re-Rendering
-            </p>
-          </div>
-          {groups.map(({ title, routes }) => (
-            <SideBarList
-              key={title}
-              title={title}
-              routes={routes}
-            />
-          ))}
+    <aside className="hidden md:block border-r-2 bg-secondary">
+      <div className="my-2">
+        <div className="border-b-2 pb-2 px-2">
+          <p className="text-xl">
+            React Re-Rendering
+          </p>
         </div>
-      </aside>
+        {groups.map(({ title, routes }) => (
+          <SideBarList
+            key={title}
+            title={title}
+            routes={routes}
+          />
+        ))}
+      </div>
+    </aside>
   )
 }
