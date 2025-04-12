@@ -29,7 +29,7 @@
     "fetch-family": "link:..\\fetch-family"
   },
   "devDependencies": {
-    "@types/node": "^20.17.24",
+    "@types/node": "^22.14.1",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -37,17 +37,17 @@
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
     "eslint": "^8.57.1",
-    "eslint-import-resolver-typescript": "^3.8.5",
+    "eslint-import-resolver-typescript": "^3.10.0",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-compiler": "19.0.0-beta-63e3235-20250105",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.19",
     "immer": "^10.1.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.8.2",
-    "vite": "^4.5.9",
+    "typescript": "^5.8.3",
+    "vite": "^4.5.13",
     "vite-plugin-node-polyfills": "^0.11.3"
   }
 }
