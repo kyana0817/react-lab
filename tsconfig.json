@@ -2,10 +2,14 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable", "WebWorker"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable",
+      "WebWorker"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -13,7 +17,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -33,12 +36,21 @@
     "preserveSymlinks": true,
     "importHelpers": false,
     // "preserveSymlinks": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@reduxjs/toolkit": ["node_modules/@reduxjs/toolkit"],
+      "@/*": [
+        "./src/*"
+      ],
+      "@reduxjs/toolkit": [
+        "./node_modules/@reduxjs/toolkit"
+      ],
     }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
