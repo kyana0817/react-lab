@@ -13,6 +13,7 @@ const { BrowserAction } = lazyImport(() => import('@/pages'), 'BrowserAction')
 const { IntersectionObserver } = lazyImport(() => import('@/pages'), 'IntersectionObserver')
 const { MyLib } = lazyImport(() => import('@/pages'), 'MyLib')
 const { Tanstack } = lazyImport(() => import('@/pages'), 'Tanstack')
+const { Activity } = lazyImport(() => import('@/pages'), 'Activity')
 
 
 const groups: Groups = [
@@ -20,6 +21,7 @@ const groups: Groups = [
     { title: 'Home', path: '/' },
     { title: 'State', path: '/state' },
     { title: 'Context', path: '/context' },
+    { title: 'Activity', path: '/activity' },
     { title: 'Redux', path: '/redux' },
     { title: 'Worker', path: '/worker' },
     { title: 'BrowserAction', path: '/browser-action' },
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: '/context',
         element: <Context />
+      },
+      {
+        path: '/activity',
+        element: <Activity />
       },
       {
         path: '/redux',
