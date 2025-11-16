@@ -1,20 +1,20 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { BaseLayout } from '@/layouts'
-import { ServerAction } from '@/pages'
 import type { Groups } from '@/types'
 import { lazyImport } from '@/utils/lazyImport'
 
-const { Home } = lazyImport(() => import('@/pages'), 'Home')
-const { State } = lazyImport(() => import('@/pages'), 'State')
-const { Context } = lazyImport(() => import('@/pages'), 'Context')
-const { Redux } = lazyImport(() => import('@/pages'), 'Redux')
-const { Worker } = lazyImport(() => import('@/pages'), 'Worker')
-const { BrowserAction } = lazyImport(() => import('@/pages'), 'BrowserAction')
-const { IntersectionObserver } = lazyImport(() => import('@/pages'), 'IntersectionObserver')
-const { MyLib } = lazyImport(() => import('@/pages'), 'MyLib')
-const { Tanstack } = lazyImport(() => import('@/pages'), 'Tanstack')
-const { Activity } = lazyImport(() => import('@/pages'), 'Activity')
-const { TypeGPU } = lazyImport(() => import('@/pages'), 'TypeGPU')
+const { Home } = lazyImport(() => import('@/pages/Home'), 'Home')
+const { State } = lazyImport(() => import('@/pages/State'), 'State')
+const { Context } = lazyImport(() => import('@/pages/Context'), 'Context')
+const { Redux } = lazyImport(() => import('@/pages/Redux'), 'Redux')
+const { Worker } = lazyImport(() => import('@/pages/Worker'), 'Worker')
+const { BrowserAction } = lazyImport(() => import('@/pages/BrowserAction'), 'BrowserAction')
+const { IntersectionObserver } = lazyImport(() => import('@/pages/IntersectionObserver'), 'IntersectionObserver')
+const { MyLib } = lazyImport(() => import('@/pages/MyLib'), 'MyLib')
+const { Tanstack } = lazyImport(() => import('@/pages/Tanstack'), 'Tanstack')
+const { Activity } = lazyImport(() => import('@/pages/Activity'), 'Activity')
+const { TypeGPU } = lazyImport(() => import('@/pages/TypeGPU'), 'TypeGPU')
+const { ServerAction } = lazyImport(() => import('@/pages/ServerAction'), 'ServerAction')
 
 
 const groups: Groups = [
