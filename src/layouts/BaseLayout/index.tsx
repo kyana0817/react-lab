@@ -31,26 +31,59 @@ export const BaseLayout = ({ groups }: BaseLayoutProps) => {
       <div className="bg-primary min-h-[100vh] flex">
         <SideBar groups={groups}/>
         <MobileMenu groups={groups}/>
-        <main className="flex-1 px-4 md:px-14 lg:px-32 pt-8 flex flex-col">
-          <header className='border-b-2'>
-            <h1>
-              {pageTitle}
-            </h1>
-          </header>
-          <div className="flex-grow-[1] flex flex-col min-w-full w-0">
-            <div className="overflow-y-auto flex-grow-[1] px-2 py-4 min-h-auto h-0">
-              <React.Suspense fallback={<Fallback/>}>
-                <Outlet/>
-              </React.Suspense>
-            </div>
+        <main className="relative flex-1 overflow-hidden bg-primary text-white px-4 md:px-10 lg:px-16 xl:px-28 py-8 flex flex-col">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -top-24 -right-16 h-72 w-72 rounded-full bg-pink-500/30 blur-[140px]"/>
+            <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-secondary/70 blur-[200px] opacity-70"/>
           </div>
-          <footer className='border-t-2'>
-            <div className='pt-2 pb-4'>
-              <p className="text-center">
+          <div className="relative z-10 flex flex-col gap-6 flex-1">
+            <header className='rounded-[32px] border border-white/10 bg-white/5 px-6 py-6 shadow-[0_24px_80px_rgba(5,6,15,0.45)] backdrop-blur-xl'>
+              <p className='text-xs font-semibold uppercase tracking-[0.35em] text-white/60'>
+                Live demo
+              </p>
+              <div className='mt-2 flex flex-wrap items-end gap-4'>
+                <h1 className='text-3xl sm:text-4xl font-bold leading-tight'>
+                  {pageTitle}
+                </h1>
+              </div>
+              <p className='mt-3 text-sm text-white/70 max-w-3xl'>
+                Explore rendering behaviors, patterns, and interactive experiments tailored for the
+                <span className='mx-1 font-semibold text-white'>
+                  {pageTitle}
+                </span>
+                module.
+              </p>
+            </header>
+            <section className='flex-1 min-h-0 flex flex-col'>
+              <div className='relative flex-1 min-h-0 rounded-[36px] border border-white/10 bg-gradient-to-b from-white/15 via-white/5 to-transparent shadow-[0_35px_120px_rgba(3,5,15,0.55)] overflow-hidden'>
+                <div className='absolute inset-0 pointer-events-none'>
+                  <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(248,113,191,0.35),_transparent_55%)] opacity-80'/>
+                </div>
+                <div className='relative flex flex-col h-full'>
+                  <div className='flex flex-wrap items-center justify-between gap-4 border-b border-white/10 px-6 py-4 text-sm text-white/70'>
+                    <div>
+                      <p className='font-semibold uppercase tracking-[0.3em] text-white/60'>
+                        Render surface
+                      </p>
+                      <p className='text-xs text-white/50'>
+                        Live preview updates every interaction
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex-1 min-h-0 overflow-y-auto px-3 sm:px-6 lg:px-10 py-6">
+                    <React.Suspense fallback={<Fallback/>}>
+                      <Outlet/>
+                    </React.Suspense>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <footer className='rounded-3xl border border-white/10 bg-white/5 px-6 py-4 text-sm text-white/70 text-center backdrop-blur-xl'>
+              <p>
                 Copyright 2023- by kyana0817
               </p>
-            </div>
-          </footer>
+            </footer>
+          </div>
         </main>
       </div>
     </>
