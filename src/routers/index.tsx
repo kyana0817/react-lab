@@ -14,6 +14,7 @@ const { IntersectionObserver } = lazyImport(() => import('@/pages'), 'Intersecti
 const { MyLib } = lazyImport(() => import('@/pages'), 'MyLib')
 const { Tanstack } = lazyImport(() => import('@/pages'), 'Tanstack')
 const { Activity } = lazyImport(() => import('@/pages'), 'Activity')
+const { TypeGPU } = lazyImport(() => import('@/pages'), 'TypeGPU')
 
 
 const groups: Groups = [
@@ -27,7 +28,8 @@ const groups: Groups = [
     { title: 'BrowserAction', path: '/browser-action' },
     { title: 'IntersectionObserver', path: '/intersection-observer' },
     { title: 'MyLib', path: '/mylib' },
-    { title: 'Tanstack', path: '/tanstack' }
+    { title: 'Tanstack', path: '/tanstack' },
+    { title: 'TypeGPU', path: '/type-gpu' }
   ] },
   { title: 'Experimental', routes: [{ title: 'ServerAction', path: '/server-action' }] }
 ]
@@ -77,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: '/tanstack',
         element: <Tanstack/>
+      },
+      {
+        path: '/type-gpu',
+        element: <TypeGPU/>
       },
       {
         path: '/server-action',
