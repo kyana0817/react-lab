@@ -9,7 +9,8 @@
       "WebWorker"
     ],
     "types": [
-      "@webgpu/types"
+      "@webgpu/types",
+      "node"
     ],
     "module": "ESNext",
     "skipLibCheck": true,
