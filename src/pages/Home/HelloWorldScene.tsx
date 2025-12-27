@@ -10,11 +10,11 @@ const HelloWorld = () => {
   const ref = useRef<Mesh>(null!)
   const font = useMemo(() => loader.parse(myFont), [])
 
-  useFrame(() => {
+  useFrame((_, delta) => {
     if (ref.current.position.z > 5) {
       ref.current.position.z = -200
     }
-    ref.current.position.z += 2
+    ref.current.position.z += 50 * delta
   })
 
   return (
