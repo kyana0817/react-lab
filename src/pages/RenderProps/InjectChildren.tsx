@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 
 const context = createContext({
@@ -90,6 +90,20 @@ export const Optimize = () => {
       <OptimizeInjectChildren>
         {(count) => <ViewCount count={count} />}
       </OptimizeInjectChildren>
+    </div>
+  )
+}
+
+
+const MemoViewCount = React.memo(ViewCount)
+
+export const Optimize2 = () => {
+  return (
+    <div>
+      <h2>Optimize 2</h2>
+      <InjectChildren>
+        {(count) => <MemoViewCount count={count} />}
+      </InjectChildren>
     </div>
   )
 }
