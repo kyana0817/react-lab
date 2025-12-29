@@ -6,6 +6,7 @@ import { lazyImport } from '@/utils/lazyImport'
 const { Home } = lazyImport(() => import('@/pages/Home'), 'Home')
 const { State } = lazyImport(() => import('@/pages/State'), 'State')
 const { Context } = lazyImport(() => import('@/pages/Context'), 'Context')
+const { RenderProps } = lazyImport(() => import('@/pages/RenderProps'), 'RenderProps')
 const { Redux } = lazyImport(() => import('@/pages/Redux'), 'Redux')
 const { Worker } = lazyImport(() => import('@/pages/Worker'), 'Worker')
 const { BrowserAction } = lazyImport(() => import('@/pages/BrowserAction'), 'BrowserAction')
@@ -22,6 +23,7 @@ const groups: Groups = [
     { title: 'Home', path: '/' },
     { title: 'State', path: '/state' },
     { title: 'Context', path: '/context' },
+    { title: 'RenderProps', path: '/render-props' },
     { title: 'Activity', path: '/activity' },
     { title: 'Redux', path: '/redux' },
     { title: 'Worker', path: '/worker' },
@@ -51,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: '/context',
         element: <Context />
+      },
+      {
+        path: '/render-props',
+        element: <RenderProps />
       },
       {
         path: '/activity',
