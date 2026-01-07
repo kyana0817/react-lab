@@ -101,7 +101,7 @@ const SideBarList = ({ title, routes }: SideBarListProps) => {
 export const SideBar = ({ groups }: SideBarProps) => {
   return (
     <aside className="hidden md:flex w-72 lg:w-80 xl:w-96 border-r border-white/10 bg-secondary/90 backdrop-blur-xl shadow-[0_20px_60px_rgba(15,23,42,0.65)]">
-      <div className="flex flex-col h-screen w-full">
+      <div className="flex flex-col h-screen w-full static top-0">
         <div className="px-6 pt-8 pb-6 border-b border-white/10">
           <p className='text-xs font-semibold uppercase tracking-[0.4em] text-pink-200/80'>
             Playground
